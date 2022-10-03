@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Водительское удостоверение</title>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <form action="#" method="post">
+    <h2>Водительское удостоверение</h2>
+    <div>
+      <p>Срок действия</p>
+      <input type="date" name="dateStart" value="" class="fa fa-calendar">
+      <span>—</span>
+      <input type="date" name="dateEnd" value="" class="fa fa-calendar">
+    </div>
+    <div>
+      <p>Категории</p>
+<!--      table>(tr>input[id=$ type=checkbox name=category value=$]+label[for=$]{$})*16-->
+      <table>
+        <tr>
+          <td><input type="checkbox" id="A" name="category" value="A"><label for="A">A</label></td>
+          <td><input type="checkbox" id="A1" name="category" value="A1"><label for="A1">A1</label></td>
+          <td><input type="checkbox" id="B" name="category" value="B"><label for="B">B</label></td>
+          <td><input type="checkbox" id="B1" name="category" value="B1"><label for="B1">B1</label></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="BE" name="category" value="BE"><label for="BE">BE</label></td>
+          <td><input type="checkbox" id="C" name="category" value="C"><label for="C">C</label></td>
+          <td><input type="checkbox" id="C1" name="category" value="C1"><label for="C1">C1</label></td>
+          <td><input type="checkbox" id="CE" name="category" value="CE"><label for="CE">CE</label></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="C1E" name="category" value="C1E"><label for="C1E">C1E</label></td>
+          <td><input type="checkbox" id="D" name="category" value="D"><label for="D">D</label></td>
+          <td><input type="checkbox" id="D1" name="category" value="D1"><label for="D1">D1</label></td>
+          <td><input type="checkbox" id="DE" name="category" value="DE"><label for="DE">DE</label></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="D1E" name="category" value="D1E"><label for="D1E">D1E</label></td>
+          <td><input type="checkbox" id="M" name="category" value="M"><label for="M">M</label></td>
+          <td><input type="checkbox" id="Tm" name="category" value="Tm"><label for="Tm">Tm</label></td>
+          <td><input type="checkbox" id="Tb" name="category" value="Tb"><label for="Tb">Tb</label></td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <input type="submit" value="Сохранить">
+    </div>
+  </form>
+  <p class="notice notice__ok">Укажите тип Объекта</p>
+  <br>
+  <p class="notice notice__error">Поле «Индекс» является обязательным и должно  состоять из 6 циф</p>
+</body>
+</html>

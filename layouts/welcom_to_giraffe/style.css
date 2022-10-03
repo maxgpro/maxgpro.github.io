@@ -1,0 +1,151 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {font-family: Roboto, sans-serif;}
+
+/*----------------------------------------------------*/
+
+header {
+	background-color: #FDCB48;
+	padding: 25px;
+	display: flex;
+}
+#cent {margin: 0 auto;}
+#cent a {display: flex;}
+#cent a img {margin: 0 auto;}
+#head {font-size: 4em;}
+
+/*----------------------------------------------------*/
+
+nav {
+	background-color: #999;
+	display: flex;
+}
+nav ul {margin: 0 auto;} /*ВЫРОВНЯЛ МЕНЮ*/
+nav ul li {display: inline-block;} /*УБЕРАЕТ МАРКЕРЫ И ВЫСТРАИВАЕТ ПО ГОРИЗОНТАЛИ*/
+nav ul li a {
+	display: block;
+	padding: 13px;
+	text-decoration: none;
+	font-weight: bold;
+	color: #fff
+}
+nav ul li a:hover, nav ul li a:focus {
+	background-color: #ccc;
+	color: #333
+}
+
+/*----------------------------------------------------*/
+
+#body { /*ID нужны что бы стили ниже по коду не перебивали друг друга*/
+	display: flex;
+}
+
+aside {
+	width: 12%;
+	margin: 35px 10px 10px auto;
+}
+aside h2 {padding: 10px; font-size: 1.2em;}
+aside hr {position: relative; top: -5px;} /*ПОДНЯЛ ЛИНИЮ*/
+aside ul {}	/*НИЧЕГО НЕ ТРЕБУЕТСЯ*/
+aside ul li {
+	list-style: none;
+	margin: 1px 0;
+}
+aside ul li a {
+	display: block;
+	text-decoration: none;
+	color: #333
+}
+aside ul li a:hover, aside ul li a:focus {
+	background-color: #999;
+	color: #fff
+}
+aside ul li a span {padding-left: 15px;} /*<span> понадобился что бы пододвинуть текст внутри ссылки*/
+
+/*----------------------------------------------------*/
+
+#content { /*Этот стиль когда был section, перебивал вержний #body*/
+	width: 66%;
+	margin: 10px auto 10px 10px;
+	padding: 15px;
+}
+article {
+	float: left; /*Оптекание — делает что бы блоки не наезжали друг на друга*/
+}
+article h1 {font-size: 2em; margin: 0 25px 15px;}
+article img {
+	float: left;
+	margin: 0 20px 20px 15px;
+	max-width: 300px;
+}
+article p {
+	padding-left: 15px;
+}
+#content article a {
+	float: right;
+	margin: 10px 15px;
+	border: 1px solid #333;
+	border-radius: 12px;
+	padding: 5px 10px;
+	text-decoration: none;
+	color: #333
+}
+#content article a:hover, #content article a:focus {
+	background-color: #333;
+	color: #fff;
+}
+
+/*----------------------------------------------------*/
+
+footer {
+	display: flex;
+}
+footer p {
+	margin: 25px auto;
+}
+footer p a {
+	text-decoration: none;
+	color: #000;
+	padding: 0 3px;
+	border-radius: 5px;
+}
+footer p a:hover, footer p a:focus {
+	background-color: #333;
+	color: #fff;
+}
+
+/*----------------------------------------------------*/
+
+@media (max-width: 640px) {
+	#body{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	aside, #content{
+		width: 90%;
+		margin: 10px 0;
+		padding: 10px;
+	}
+	article{
+		margin-bottom: 5em;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	p{
+		float: left;
+	}
+}
+
+@media (min-width: 960px){
+	#cent{
+		display: flex;
+		flex-direction: row-reverse;
+	}
+	#cent p{
+		padding-top: 80px;
+	}
+}

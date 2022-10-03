@@ -1,0 +1,124 @@
+@import url(css/font-awesome.min.css) screen;
+@font-face {
+  font-family: 'PT Sans';
+  font-weight: normal;
+  src: url(fonts/PT_Sans-Web-Regular.ttf)}
+@font-face {
+  font-family: 'PT Sans';
+  font-weight: bold;
+  src: url(fonts/PT_Sans-Web-Bold.ttf)}
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: normal;}
+body {
+  padding: 40px 35px;
+  background-color: #eaeaea;}
+form {
+  width: 580px;
+  background-color: #fff;}
+h2 {
+  padding: 20px 25px 30px;}
+div {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 25px;}
+p {
+  display: inline-block;
+  min-width: 130px;}
+
+input[type="date"] {
+  position: relative;
+  border: 1px solid #cdcdcd;
+  width: 162px;
+  height: 25px;
+  padding: 0 25px 0 0;
+  cursor: text;}
+input[type="date"]::before {
+  position: relative;
+  right: -165px;
+  opacity: 0.3;}
+i.fa.fa-calendar {
+  display: inline;
+  position: relative;
+  left: -25px;
+  opacity: .4;}
+span {
+  margin: 0 7px;}
+
+/*Категории------------------------------*/
+form div:nth-child(3) {
+  align-items: flex-start;
+  margin: 18px 0 49px;}
+table {
+  border-collapse: collapse;}
+td {
+  border: 1px solid black;
+  border-color: #cdcdcd;}
+input[type="checkbox"] {
+  display: none;}
+td > input[type="checkbox"] + label {
+  display: flex;
+  width: 100px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;}
+input[type="checkbox"] + label:hover {
+  background-color: rgba(0, 98, 170, .1);}
+input[type="checkbox"]:checked + label {
+  background-color: rgba(0, 98, 170, 1);
+  color: #fff;}
+input[type="checkbox"]:checked + label:hover {
+  background-color: rgba(0, 98, 170, 0.8);}
+
+/*Отправить----------------------------*/
+form > div:nth-child(4) {
+  padding: 20px;
+  background-color: #f0e6d8;}
+input[type="submit"] {
+  width: 120px;
+  height: 30px;
+  border: 1px solid #dfdfdf;
+  border-radius: 15px;
+  background: linear-gradient(to top, #eee, #fcfcfc);
+  box-shadow: 0 2px 4px  #a8a8a8;
+  text-shadow: 0 1px 1px #fff;
+  color: #999;
+  font-size: 1em;
+  font-family: 'PT Sans' sans-serif;
+  font-weight: bold;
+  cursor: pointer;}
+
+/*Уведомления---------------------------*/
+.notice {
+  max-width: 390px;
+  margin: 10px 15px;
+  padding: 14px;
+  color: #fff;
+  background-color: rgba(0, 98, 170, 1);
+  position: relative;}
+.notice::after {
+  content: '';
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: calc(100% / 2 - 8px);
+  left: -16px;
+  border: 8px solid transparent;
+  border-right: 8px solid rgba(0, 98, 170, 1);}
+.notice__ok {
+  background-color: #7dd181;}
+.notice__ok::after {
+  border-right: 8px solid #7dd181;}
+.notice__error {
+  background-color: #dd7373;}
+.notice__error::after {
+  border-right: 8px solid #dd7373;}
