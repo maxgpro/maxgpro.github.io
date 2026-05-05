@@ -159,7 +159,7 @@
   .rail::before {
     content: '';
     position: absolute;
-    left: 7px;
+    left: calc(-2rem + 7px);
     top: 6px;
     bottom: 6px;
     width: 1px;
@@ -167,7 +167,7 @@
   }
   .rail-dot {
     position: absolute;
-    left: 0;
+    left: -2rem;
     top: 8px;
     width: 15px;
     height: 15px;
@@ -308,7 +308,7 @@
     <div class="max-w-3xl mx-auto px-6 sm:px-8 py-20">
       <p class="mono-label text-ink-300">experience</p>
 
-      <ol class="mt-10 space-y-12 rail pl-14">
+      <ol class="mt-10 space-y-12 rail pl-10">
 
         <li class="relative">
           <span class="rail-dot is-current"></span>
