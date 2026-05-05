@@ -1,101 +1,474 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="en">
 <head>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-    m[i].l=1*new Date();
-    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
- 
-    ym(90634829, "init", {
-         clickmap:true,
-         trackLinks:true,
-         accurateTrackBounce:true
-    });
- </script>
- <noscript><div><img src="https://mc.yandex.ru/watch/90634829" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
- <!-- /Yandex.Metrika counter -->
-    
-	<meta charset="UTF-8">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-	<title>Maxim Gutin | Web developer</title>
-	
-    <meta name="author" content="Maxim Gutin">
-    <meta name="description" content="HTML, CSS, PHP, SQL.">
-    <meta name="keywords" content="максим гутин, Maxim Gutin, веб-разработчик, web developer, html, css, php, mysql">
-	
-	<meta name="robots" content="indnex,follow">
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Max Gutin — Senior Backend / Full-stack Engineer</title>
+<meta name="description" content="Senior Backend / Full-stack Engineer specialising in Laravel, payments, and distributed systems. Six years of production PHP/Laravel with supporting Python and Go services. Tbilisi, open to remote worldwide." />
+<meta name="theme-color" content="#0a0a0b" />
 
+<!-- Open Graph -->
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="Max Gutin — Senior Backend / Full-stack Engineer" />
+<meta property="og:description" content="Laravel · PHP · Python · Go · Payments & distributed systems" />
+<meta property="og:url" content="https://maxgpro.github.io" />
+
+<!-- Fonts: distinctive but readable. JetBrains Mono for accents, Fraunces for display, Inter Tight as a quiet workhorse for body. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Tailwind via CDN (no build step) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          display: ['Fraunces', 'serif'],
+          sans: ['Inter Tight', 'system-ui', 'sans-serif'],
+          mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+        },
+        colors: {
+          ink: {
+            50:  '#f5f5f6',
+            100: '#e5e5e7',
+            200: '#c7c7cb',
+            300: '#9ea0a6',
+            400: '#6e7079',
+            500: '#4a4c54',
+            600: '#2f3037',
+            700: '#1c1d22',
+            800: '#121317',
+            900: '#0a0a0b',
+            950: '#050506',
+          },
+          accent: {
+            DEFAULT: '#7dd3a6',  // muted mint — calm, technical
+            soft:    '#3d6951',
+            glow:    '#a7e8c4',
+          },
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root {
+    --ink-900: #0a0a0b;
+    --ink-800: #121317;
+    --ink-700: #1c1d22;
+    --ink-500: #4a4c54;
+    --ink-300: #9ea0a6;
+    --accent:  #7dd3a6;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    background: var(--ink-900);
+    color: #e5e5e7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Subtle grid background — engineer aesthetic without being noisy */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: -1px -1px;
+  }
+
+  /* Soft radial vignette to add depth without colour noise */
+  .vignette::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(125,211,166,0.08), transparent 60%),
+      radial-gradient(ellipse 90% 50% at 50% 100%, rgba(125,211,166,0.03), transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Display headings: tight, optical-size aware Fraunces */
+  .display {
+    font-family: 'Fraunces', serif;
+    font-optical-sizing: auto;
+    font-variation-settings: 'opsz' 144;
+    letter-spacing: -0.025em;
+    font-weight: 400;
+  }
+
+  /* Mono labels — small caps feel */
+  .mono-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* Link underline that glides instead of jumping */
+  a.glide {
+    position: relative;
+    color: #e5e5e7;
+    text-decoration: none;
+    transition: color 220ms ease;
+  }
+  a.glide::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -2px;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 320ms cubic-bezier(0.6, 0.05, 0.2, 1);
+  }
+  a.glide:hover { color: var(--accent); }
+  a.glide:hover::after { transform: scaleX(1); }
+
+  /* Tag / pill style */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.32rem 0.7rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #c7c7cb;
+    background: rgba(255,255,255,0.015);
+    transition: border-color 200ms ease, color 200ms ease, background 200ms ease;
+  }
+  .tag:hover {
+    border-color: rgba(125,211,166,0.4);
+    color: var(--accent);
+    background: rgba(125,211,166,0.04);
+  }
+
+  /* Timeline rail */
+  .rail {
+    position: relative;
+  }
+  .rail::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 6px;
+    bottom: 6px;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
+  }
+  .rail-dot {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 15px;
+    height: 15px;
+    border-radius: 999px;
+    background: var(--ink-900);
+    border: 1px solid rgba(255,255,255,0.18);
+  }
+  .rail-dot.is-current {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(125,211,166,0.08);
+  }
+  .rail-dot.is-current::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 999px;
+    background: var(--accent);
+  }
+
+  /* Reveal on load */
+  .reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: reveal 800ms cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+  }
+  @keyframes reveal {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Status dot pulse */
+  .pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 rgba(125,211,166,0.5);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(125,211,166,0.45); }
+    70%  { box-shadow: 0 0 0 8px rgba(125,211,166,0); }
+    100% { box-shadow: 0 0 0 0 rgba(125,211,166,0); }
+  }
+
+  /* Reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none; opacity: 1; transform: none; }
+    .pulse-dot { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgba(125,211,166,0.25);
+    color: #fff;
+  }
+</style>
 </head>
-<body class="">
-<main class="container-fluid">
-    <div class="row">
-        <div class="col-sm">
-            <div class="jumbotron">
-                <h1 class="display-4">Maxim Gutin</h1>
-                <p class="lead col-lg-10 col-xl-8">PHP, SQL, HTML, CSS</p>
-                <hr class="my-4">
-                <a class="btn btn-primary btn-lg text-light" href="https://todo.gutin.ru" target="_blank" role="button" data-toggle="tooltip" data-placement="bottom" title="PHP + MySQL">To-Do List (web app)</a>
-                <a class="btn btn-primary btn-lg text-light" href="https://cge49.ru/" target="_blank" role="button"  data-toggle="tooltip" data-placement="bottom" title="Joomla! + Gantry 5">Joomla! <span class="badge badge-light">1</span></a>
-                <div class="dropdown">
-                    <button class="btn btn-primary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Layouts
-                        <span class="badge badge-light">5</span>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-<!--                        <a class="dropdown-item" href="https://sto.gutin.ru/" target="_blank">Car repair shop</a>-->
-                        <a class="dropdown-item" href="https://snyato.com/" target="_blank">Creative Events</a>
-                        <a class="dropdown-item" href="layouts/prcompaniya/" target="_blank">PR agency</a>
-                        <a class="dropdown-item" href="layouts/newsletter/" target="_blank">Template of main page</a>
-                        <a class="dropdown-item" href="layouts/welcom_to_giraffe/" target="_blank">Minimalistic blog</a>
-                        <a class="dropdown-item" href="layouts/task001/" target="_blank">Driver license</a>
-                    </div>
-                </div>
-            </div>
+
+<body class="min-h-screen">
+
+<!-- HEADER -->
+<header class="relative grid-bg">
+  <div class="vignette absolute inset-0"></div>
+
+  <div class="relative max-w-3xl mx-auto px-6 sm:px-8 pt-10 pb-4">
+    <nav class="flex items-center justify-between text-sm">
+      <span class="mono-label text-ink-300">mg<span class="text-accent">.</span></span>
+      <div class="flex items-center gap-2 text-ink-300">
+        <span class="pulse-dot"></span>
+        <span class="mono-label">open to work</span>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="relative">
+
+  <!-- HERO -->
+  <section class="relative grid-bg">
+    <div class="vignette absolute inset-0"></div>
+    <div class="relative max-w-3xl mx-auto px-6 sm:px-8 pt-10 sm:pt-16 pb-20 sm:pb-28">
+
+      <p class="mono-label text-accent reveal" style="animation-delay: 40ms">Tbilisi · open to remote worldwide</p>
+
+      <h1 class="display text-5xl sm:text-6xl md:text-7xl leading-[0.95] mt-6 reveal" style="animation-delay: 120ms">
+        Max Gutin.
+      </h1>
+
+      <p class="display text-2xl sm:text-3xl md:text-4xl leading-[1.15] mt-6 text-ink-100 reveal" style="animation-delay: 220ms">
+        I build production <em class="text-accent not-italic">Laravel</em> systems for high-throughput, transactional workloads.
+      </p>
+
+      <p class="mt-8 text-ink-200 max-w-2xl text-lg leading-relaxed reveal" style="animation-delay: 320ms">
+        Senior Backend / Full-stack engineer with six years of production PHP/Laravel and supporting Python and Go services.
+        Most recently the founding engineer of an early-stage fintech platform —
+        owning architecture, code, and infrastructure end-to-end.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-2 reveal" style="animation-delay: 420ms">
+        <span class="tag"><span class="text-accent">●</span> PHP 8.4</span>
+        <span class="tag"><span class="text-accent">●</span> Laravel 12</span>
+        <span class="tag"><span class="text-accent">●</span> PostgreSQL</span>
+        <span class="tag"><span class="text-accent">●</span> Redis</span>
+        <span class="tag"><span class="text-accent">●</span> Vue 3</span>
+        <span class="tag"><span class="text-accent">●</span> Inertia v2</span>
+        <span class="tag"><span class="text-accent">●</span> Pest 4</span>
+        <span class="tag"><span class="text-accent">●</span> Python</span>
+        <span class="tag"><span class="text-accent">●</span> Go</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="border-t border-white/[0.05]">
+    <div class="max-w-3xl mx-auto px-6 sm:px-8 py-20">
+      <p class="mono-label text-ink-300">about</p>
+      <div class="mt-8 space-y-6 text-ink-100 text-lg leading-relaxed">
+        <p>
+          Deep experience in transactional systems: payment orchestration with 30+ provider integrations,
+          idempotent webhook processing, real-time matching engines for two-sided marketplaces,
+          and high-load financial microservices at <span class="font-mono text-ink-50">99.9%</span> SLA.
+        </p>
+        <p>
+          Two years of formal team leadership before deliberately returning to a senior IC seat —
+          I want to own systems end-to-end again.
+        </p>
+        <p>
+          Comfortable with DDD, hexagonal / ports-and-adapters, CQRS, the outbox pattern,
+          idempotency design, and OpenTelemetry-based observability.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="border-t border-white/[0.05]">
+    <div class="max-w-3xl mx-auto px-6 sm:px-8 py-20">
+      <p class="mono-label text-ink-300">experience</p>
+
+      <ol class="mt-10 space-y-12 rail pl-10">
+
+        <li class="relative">
+          <span class="rail-dot is-current"></span>
+          <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+            <h3 class="display text-2xl text-ink-50">Founding Engineer · Tech Lead</h3>
+            <span class="mono-label text-ink-300">2025 — now</span>
+          </div>
+          <p class="mt-2 text-ink-300 italic">Confidential fintech client · contract · remote</p>
+          <p class="mt-4 text-ink-100 leading-relaxed">
+            Single-handedly built a payment-orchestration platform for an early-stage fintech client;
+            led junior engineers as the team grew. Owned architecture, full-stack implementation,
+            production infrastructure, CI/CD, and observability.
+          </p>
+        </li>
+
+        <li class="relative">
+          <span class="rail-dot"></span>
+          <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+            <h3 class="display text-2xl text-ink-50">Development Team Lead</h3>
+            <span class="mono-label text-ink-300">2024 — 2025</span>
+          </div>
+          <p class="mt-2 text-ink-300 italic">PikDigital · remote</p>
+          <p class="mt-4 text-ink-100 leading-relaxed">
+            Led a backend team of five across multiple Laravel-based product engagements.
+            Owned architecture decisions, code-review culture, hiring, and CI/CD setup.
+          </p>
+        </li>
+
+        <li class="relative">
+          <span class="rail-dot"></span>
+          <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+            <h3 class="display text-2xl text-ink-50">Software Engineering Team Lead</h3>
+            <span class="mono-label text-ink-300">2023 — 2024</span>
+          </div>
+          <p class="mt-2 text-ink-300 italic">Digital Bureau · Belgrade · remote</p>
+          <p class="mt-4 text-ink-100 leading-relaxed">
+            Led a team of engineers across multiple client product engagements.
+            Owned database architectures, code review, and the full delivery lifecycle.
+          </p>
+        </li>
+
+        <li class="relative">
+          <span class="rail-dot"></span>
+          <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+            <h3 class="display text-2xl text-ink-50">PHP Developer</h3>
+            <span class="mono-label text-ink-300">2020 — 2023</span>
+          </div>
+          <p class="mt-2 text-ink-300 italic">PJSC Gazprom Neft · Saint Petersburg</p>
+          <p class="mt-4 text-ink-100 leading-relaxed">
+            High-load microservices for back-office finance operations at 99.9% SLA.
+            Idempotent transaction pipelines, reconciliation jobs, internal API gateway used by multiple downstream teams.
+            Supporting Python services and Go RPC contributions.
+          </p>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+  <!-- TECH -->
+  <section class="border-t border-white/[0.05]">
+    <div class="max-w-3xl mx-auto px-6 sm:px-8 py-20">
+      <p class="mono-label text-ink-300">stack</p>
+
+      <div class="mt-10 grid sm:grid-cols-2 gap-x-12 gap-y-8 text-ink-100">
+
+        <div>
+          <p class="mono-label text-accent mb-3">backend</p>
+          <p class="leading-relaxed">PHP 8.4 · Laravel 11/12 · Symfony · Yii2 · Python (FastAPI, asyncio, Celery) · Go (HTTP, gRPC)</p>
         </div>
-    </div><!-- 
-    <div class="row my-cards">
-        <div class="col-sm-4 col-lg-3 col-xl-2">
-            <article>
-                <div class="card">
-                    <h5 class="card-header">Feedback</h5>
-                    <div class="card-body">
-                        <p class="card-text"></p>
-                        <a class="btn btn-primary" href="" target="_blank">Telegram</a>
-                    </div>
-                </div>
-            </article>
+
+        <div>
+          <p class="mono-label text-accent mb-3">frontend</p>
+          <p class="leading-relaxed">Vue 3 · Inertia.js v2 · TypeScript · Tailwind v4 · shadcn/ui · React</p>
         </div>
-    </div> -->
+
+        <div>
+          <p class="mono-label text-accent mb-3">data &amp; messaging</p>
+          <p class="leading-relaxed">PostgreSQL · MySQL · MongoDB · Redis · RabbitMQ · Kafka · S3 / MinIO</p>
+        </div>
+
+        <div>
+          <p class="mono-label text-accent mb-3">architecture</p>
+          <p class="leading-relaxed">DDD · Hexagonal · CQRS · Event sourcing · Outbox · Idempotency · Saga / process manager</p>
+        </div>
+
+        <div>
+          <p class="mono-label text-accent mb-3">testing</p>
+          <p class="leading-relaxed">Pest 4 (feature + architecture) · Vitest · Newman · PHPStan · mutation testing</p>
+        </div>
+
+        <div>
+          <p class="mono-label text-accent mb-3">ops &amp; infra</p>
+          <p class="leading-relaxed">Docker · Linux · GitHub Actions self-hosted · Cloudflare · OpenTelemetry · Horizon · systemd</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AVAILABILITY -->
+  <section class="border-t border-white/[0.05]">
+    <div class="max-w-3xl mx-auto px-6 sm:px-8 py-20">
+      <p class="mono-label text-ink-300">availability</p>
+
+      <div class="mt-10 space-y-6 text-ink-100 text-lg leading-relaxed">
+        <p>
+          Open to fully remote senior IC roles worldwide and to relocation for the right opportunity.
+        </p>
+        <p>
+          Currently planning a move to Italy in 2026 (Digital Nomad Visa), but flexible —
+          strong remote offers or relocation packages elsewhere are equally welcome.
+        </p>
+        <p>
+          Available for B2B engagements (Partita IVA / forfettario) or employment via
+          EOR (Deel / Remote.com / Oyster).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="border-t border-white/[0.05]">
+    <div class="max-w-3xl mx-auto px-6 sm:px-8 py-20">
+      <p class="mono-label text-ink-300">contact</p>
+
+      <h2 class="display text-4xl sm:text-5xl text-ink-50 mt-8 leading-tight">
+        Let's talk.
+      </h2>
+
+      <ul class="mt-10 grid sm:grid-cols-2 gap-x-12 gap-y-5 text-lg">
+        <li>
+          <span class="mono-label text-ink-400 block mb-1">email</span>
+          <a class="glide" href="mailto:wargix32bita@gmail.com">wargix32bita@gmail.com</a>
+        </li>
+        <li>
+          <span class="mono-label text-ink-400 block mb-1">linkedin</span>
+          <a class="glide" href="https://linkedin.com/in/maxgpro" target="_blank" rel="noopener">linkedin.com/in/maxgpro</a>
+        </li>
+        <li>
+          <span class="mono-label text-ink-400 block mb-1">github</span>
+          <a class="glide" href="https://github.com/maxgpro" target="_blank" rel="noopener">github.com/maxgpro</a>
+        </li>
+        <li>
+          <span class="mono-label text-ink-400 block mb-1">blog</span>
+          <a class="glide" href="https://maxg.pro" target="_blank" rel="noopener">maxg.pro</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
 </main>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm">
-            <footer>
-                <p>
-                    <span> </span>
-                    <!-- Creator: <a href="#">Max Goodman</a> -->
-                </p>
+<!-- FOOTER -->
+<footer class="border-t border-white/[0.05]">
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 py-10 flex flex-wrap items-center justify-between gap-4 text-sm text-ink-400">
+    <span class="mono-label">© Max Gutin · 2026</span>
+    <span class="mono-label">Tbilisi · 41.7°N 44.8°E</span>
+  </div>
+</footer>
 
-            </footer>
-        </div>
-    </div>
-</div>
-
-<script src="assets/js/jquery-3.3.1.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script>
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-</script>
 </body>
 </html>
